@@ -1,0 +1,10 @@
+body > .container-fluid {margin-top: 15px}
+
+.btn-pct-reset {width: 100%}
+@media (min-width: 768px) {
+  .btn-pct-reset {margin-top: 25px}
+}
+
+.panel.open .panel-heading .fa-chevron-down {display:none}
+.panel:not(.open) .panel-heading .fa-chevron-up {display:none}
+.panel-body .row .form-group {width: 100%}
