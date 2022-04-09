@@ -10,5 +10,5 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2
-Imports: AnalyticsPackage, log4r, reactable, shiny, shinycssloaders
+Imports: AnalyticsPackage, log4r, magrittr, plotly, reactable, shiny, shinycssloaders
 Suggests: testthat, shinytest
