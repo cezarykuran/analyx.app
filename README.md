@@ -5,7 +5,4 @@ Simple shiny app as R package with:
 - roxygen, markdown ;)
 
 ## How to run
-Install *AnalyticsPackage* and *analyx.app* packages, run *analyx.app::run()*
-
-## Watch video
-ToDo
+Install **AnalyticsPackage** and **analyx.app** packages, run **analyx.app::run()**.
