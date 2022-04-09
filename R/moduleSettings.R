@@ -48,6 +48,9 @@ moduleSettingsUI <- function(id) {
 
 # server function
 moduleSettings <- function(id, data) {
+  LOG_PREFIX <- paste0("moduleSettings[", id, "]: ")
+  logInfo(LOG_PREFIX, "starting")
+
   shiny::moduleServer(
     id,
     function(input, output, session) {
@@ -64,18 +67,48 @@ moduleSettings <- function(id, data) {
       }
 
       # reset buttons
-      shiny::observeEvent(input$aReset, shiny::updateNumericInput(inputId = "aPct", value = 100))
-      shiny::observeEvent(input$bReset, shiny::updateNumericInput(inputId = "bPct", value = 100))
-      shiny::observeEvent(input$cReset, shiny::updateNumericInput(inputId = "cPct", value = 100))
-      shiny::observeEvent(input$dReset, shiny::updateNumericInput(inputId = "dPct", value = 100))
-      shiny::observeEvent(input$eReset, shiny::updateNumericInput(inputId = "ePct", value = 100))
+      shiny::observeEvent(input$aReset, {
+        logDebug(LOG_PREFIX, "button input$aReset event")
+        shiny::updateNumericInput(inputId = "aPct", value = 100)
+      })
+      shiny::observeEvent(input$bReset, {
+        logDebug(LOG_PREFIX, "button input$bReset event")
+        shiny::updateNumericInput(inputId = "bPct", value = 100)
+      })
+      shiny::observeEvent(input$cReset, {
+        logDebug(LOG_PREFIX, "button input$cReset event")
+        shiny::updateNumericInput(inputId = "cPct", value = 100)
+      })
+      shiny::observeEvent(input$dReset, {
+        logDebug(LOG_PREFIX, "button input$dReset event")
+        shiny::updateNumericInput(inputId = "dPct", value = 100)
+      })
+      shiny::observeEvent(input$eReset, {
+        logDebug(LOG_PREFIX, "button input$eReset event")
+        shiny::updateNumericInput(inputId = "ePct", value = 100)
+      })
 
       # percentage inputs
-      shiny::observeEvent(input$aPct, pctEvent("aPct"))
-      shiny::observeEvent(input$bPct, pctEvent("bPct"))
-      shiny::observeEvent(input$cPct, pctEvent("cPct"))
-      shiny::observeEvent(input$dPct, pctEvent("dPct"))
-      shiny::observeEvent(input$ePct, pctEvent("ePct"))
+      shiny::observeEvent(input$aPct, {
+        logDebug(LOG_PREFIX, "numeric input input$aPct event")
+        pctEvent("aPct")
+      })
+      shiny::observeEvent(input$bPct, {
+        logDebug(LOG_PREFIX, "numeric input input$bPct event")
+        pctEvent("bPct")
+      })
+      shiny::observeEvent(input$cPct, {
+        logDebug(LOG_PREFIX, "numeric input input$cPct event")
+        pctEvent("cPct")
+      })
+      shiny::observeEvent(input$dPct, {
+        logDebug(LOG_PREFIX, "numeric input input$dPct event")
+        pctEvent("dPct")
+      })
+      shiny::observeEvent(input$ePct, {
+        logDebug(LOG_PREFIX, "numeric input input$ePct event")
+        pctEvent("ePct")
+      })
     }
   )
 }

@@ -5,6 +5,9 @@ ui <- shiny::fluidPage(
     shiny::tags$link(rel = "stylesheet", type = "text/css", href = "app.css")
   ),
 
+  # title
+  shiny::titlePanel('Analyx demo application'),
+
   # modules
   moduleSettingsUI("settings"),
   moduleResultsUI("results"),

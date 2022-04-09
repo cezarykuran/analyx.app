@@ -20,11 +20,15 @@ moduleResultsUI <- function(id) {
 
 # server function
 moduleResults <- function(id, results) {
+  LOG_PREFIX <- paste0("moduleResults[", id, "]: ")
+  logInfo(LOG_PREFIX, "starting")
+
   shiny::moduleServer(
     id,
     function(input, output, session) {
       # render results
       output$table <- reactable::renderReactable({
+        logDebug(LOG_PREFIX, "refreshing reactable")
         reactable::reactable(
           results(),
           defaultColDef = reactable::colDef(
