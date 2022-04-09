@@ -1,3 +1,8 @@
+#
+# Module settings
+#
+
+# UI function
 moduleSettingsUI <- function(id) {
   # helpers
   ns <- shiny::NS(id)
@@ -41,6 +46,7 @@ moduleSettingsUI <- function(id) {
   )
 }
 
+# server function
 moduleSettings <- function(id, data) {
   shiny::moduleServer(
     id,
