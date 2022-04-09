@@ -5,18 +5,18 @@
 # UI function
 moduleResultsUI <- function(id) {
   # helpers
-  ns <- shiny::NS(id)
+  ns <- NS(id)
 
   # output
   panel(
-    head = shiny::tagList(
-      shiny::icon('chart-pie'), 'Results'
+    head = tagList(
+      icon('chart-pie'), 'Results'
     ),
-    body = shiny::tagList(
+    body = tagList(
       shinycssloaders::withSpinner(
         reactable::reactableOutput(ns("table"), width = "100%")
       ),
-      shiny::hr(),
+      hr(),
       shinycssloaders::withSpinner(
         plotly::plotlyOutput(ns("plot"))
       )
@@ -29,7 +29,7 @@ moduleResults <- function(id, results) {
   LOG_PREFIX <- paste0("moduleResults[", id, "]: ")
   logInfo(LOG_PREFIX, "starting")
 
-  shiny::moduleServer(
+  moduleServer(
     id,
     function(input, output, session) {
       # render reactable
@@ -55,7 +55,7 @@ moduleResults <- function(id, results) {
           type = "bar"
         ) %>%
         plotly::layout(
-          yaxis = list(title = 'Results')
+          yaxis = list(title = 'results')
         )
       })
     }

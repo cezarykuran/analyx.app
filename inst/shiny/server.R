@@ -3,13 +3,13 @@ server <- function(input, output, session) {
   logInfo(LOG_PREFIX, "starting")
 
   # data
-  data <- shiny::reactiveVal(
+  data <- reactiveVal(
     AnalyticsPackage::data
   )
-  results <- shiny::reactive({
+  results <- reactive({
     logInfo(LOG_PREFIX, "recalculating data")
     AnalyticsPackage::calculate(
-      shiny::debounce(data, 1000)()
+      debounce(data, 1000)()
     )
   })
 

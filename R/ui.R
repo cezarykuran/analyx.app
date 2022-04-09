@@ -15,26 +15,26 @@ panel <- function(body, head = NULL, footer = NULL, collapsible = FALSE) {
     inherits(footer, c("character", "shiny.tag", "shiny.tag.list", "NULL")),
     is.logical(collapsible) && length(collapsible) == 1
   )
-  shiny::div(
+  div(
     class = "panel panel-default open",
     if(!is.null(head) || collapsible) {
-      shiny::div(
+      div(
         class = "panel-heading",
         onclick = ifelse(collapsible, "panelCollapse(this)", ""),
         if (collapsible)
-          shiny::span(
+          span(
             class = "pull-right",
-            shiny::icon('chevron-up'),
-            shiny::icon('chevron-down')
+            icon('chevron-up'),
+            icon('chevron-down')
           ),
         head
       )
     },
-    shiny::div(
+    div(
       class = "panel-body",
       body
     ),
-    if(!is.null(footer)) shiny::div(class = "panel-footer", footer)
+    if(!is.null(footer)) div(class = "panel-footer", footer)
   )
 }
 
@@ -48,7 +48,7 @@ inputStateContainer <- function(id, inputUI) {
     is.character(id) && length(id) == 1,
     inherits(inputUI, c("character", "shiny.tag", "shiny.tag.list"))
   )
-  shiny::div(id = paste0(id, "State"), inputUI)
+  div(id = paste0(id, "State"), inputUI)
 }
 
 #' Set input state
